@@ -1,0 +1,23 @@
+zkillboard:
+  replay_from: tmp/debug #optional replays saved kill reports from the disk
+
+channels:
+  - type: debug
+    constraints:
+      alliances:
+        - Pandemic Legion
+        - Goonswarm Federation
+  # - type: record
+  #   config:
+  #     path: tmp/debug
+  - type: discord
+    config:
+      webhook: https://...
+    constraints:
+      alliances:
+        - The Eclipse.
+      corporations:
+        - "New Eden's Best."
+      systems:
+        - NU4-2G
+      type: win

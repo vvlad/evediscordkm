@@ -1,3 +1,34 @@
+# Config
+
+```
+zkillboard:
+  replay_from: tmp/debug #optional replays saved kill reports from the disk
+
+channels:
+  - type: debug
+    constraints:
+      alliances:
+        - The Eclipse.
+        - Goonswarm Federation
+  - type: record
+    config:
+      path: tmp/debug
+  - type: discord
+    config:
+      webhook: https://...
+    constraints:
+      alliances:
+        - The Eclipse.
+      corporations:
+        - "New Eden's Best."
+      systems:
+        - NU4-2G
+      type: win
+```
+
+
+
+
 # Eve Discord Killmail Webhook
 
 This is a simple script to query for killmails by
