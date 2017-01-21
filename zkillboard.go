@@ -42,10 +42,15 @@ func (z *ZKillboard) Run() {
 
 	for {
 		resp, err := http.Get("https://redisq.zkillboard.com/listen.php")
-		if err != nil || resp.StatusCode != 200 {
-			fmt.Fprintln(os.Stderr, "HTTP error!", err, resp.StatusCode, *resp)
+		if err != nil {
+			fmt.Fprintln(os.Stderr, "HTTP error!", err)
 			continue
 		}
+		if resp.StatusCode != 200 {
+			fmt.Fprintln(os.Stderr, "HTTP error!", resp.StatusCode, *resp)
+			continue
+		}
+		defer resp.Body.Close()
 		data, _ := ioutil.ReadAll(resp.Body)
 		response := zkbRedisQResponse{}
 		json.Unmarshal(data, &response)
