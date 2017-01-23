@@ -27,9 +27,9 @@ func (d *DebugChannel) Process(kill RelevantReport) {
 
 	message := fmt.Sprintf("[%s] %s (%s) by [%s]", kill.Killmail.SolarSystem.Name, victim.Character.Name, victim.Corporation.Name, strings.Join(attackers, ","))
 	if kill.Type == Win {
-		color.Green(message)
+		color.Green("Win  :" + message)
 	} else {
-		color.Red(message)
+		color.Red("Loss :" + message)
 	}
 
 }

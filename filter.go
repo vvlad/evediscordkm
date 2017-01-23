@@ -10,6 +10,7 @@ type Constraints struct {
 	Corporations []string
 	Type         string
 	Systems      []string
+	Characters   []string
 }
 
 type Filter struct {
@@ -66,7 +67,8 @@ func (f *Filter) relevantAttackers(kill KillReport) []Attacker {
 	attackers := []Attacker{}
 	for _, att := range kill.Killmail.Attackers {
 		if entityIsRelevant(att.Corporation, f.Constraints.Corporations) ||
-			entityIsRelevant(att.Alliance, f.Constraints.Alliances) {
+			entityIsRelevant(att.Alliance, f.Constraints.Alliances) ||
+			entityIsRelevant(att.Character, f.Constraints.Characters) {
 			attackers = append(attackers, att)
 		}
 	}
@@ -78,7 +80,8 @@ func (f *Filter) relevantAttackers(kill KillReport) []Attacker {
 func (f *Filter) relevantVictim(kill KillReport) *Victim {
 	victim := kill.Killmail.Victim
 	if entityIsRelevant(victim.Corporation, f.Constraints.Corporations) ||
-		entityIsRelevant(victim.Alliance, f.Constraints.Alliances) {
+		entityIsRelevant(victim.Alliance, f.Constraints.Alliances) ||
+		entityIsRelevant(victim.Character, f.Constraints.Characters) {
 		return &victim
 	}
 	return nil

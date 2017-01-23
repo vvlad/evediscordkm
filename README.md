@@ -15,6 +15,8 @@ channels:
       alliances:
         - The Eclipse.
         - Goonswarm Federation
+      characters:
+        - Audrey Horn
   - type: record
     config:
       path: tmp/debug

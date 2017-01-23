@@ -7,6 +7,10 @@ channels:
       alliances:
         - Pandemic Legion
         - Goonswarm Federation
+      characters:
+        - Audrey Horn
+      systems:
+        - D-W7F0
   # - type: record
   #   config:
   #     path: tmp/debug
