@@ -25,7 +25,7 @@ func (d *DebugChannel) Process(kill RelevantReport) {
 		attackers = append(attackers, fmt.Sprintf("%s (%s)", attacker.Character.Name, attacker.Corporation.Name))
 	}
 
-	message := fmt.Sprintf("[%s] %s (%s) by [%s]", kill.Killmail.SolarSystem.Name, victim.Character.Name, victim.Corporation.Name, strings.Join(attackers, ","))
+	message := fmt.Sprintf("[%s] %s (%s) by [%s] %f", kill.Killmail.SolarSystem.Name, victim.Character.Name, victim.Corporation.Name, strings.Join(attackers, ","), kill.Metadata.TotalValue)
 	if kill.Type == Win {
 		color.Green("Win  :" + message)
 	} else {

@@ -7,21 +7,27 @@ channels:
       alliances:
         - Pandemic Legion
         - Goonswarm Federation
+      corporations:
+        - KarmaFleet
       characters:
         - Audrey Horn
+      type: loss
       systems:
         - D-W7F0
+        - KLY-C0
+      minimum_cost: 10001
+
   # - type: record
   #   config:
   #     path: tmp/debug
-  - type: discord
-    config:
-      webhook: https://...
-    constraints:
-      alliances:
-        - The Eclipse.
-      corporations:
-        - "New Eden's Best."
-      systems:
-        - NU4-2G
-      type: win
+  # - type: discord
+  #   config:
+  #     webhook: https://...
+  #   constraints:
+  #     alliances:
+  #       - The Eclipse.
+  #     corporations:
+  #       - "New Eden's Best."
+  #     systems:
+  #       - NU4-2G
+  #     type: win

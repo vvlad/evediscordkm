@@ -17,6 +17,11 @@ channels:
         - Goonswarm Federation
       characters:
         - Audrey Horn
+      systems:
+        - D-W7F0
+        - KLY-C0
+      minimum_cost: 10001
+      type: win
   - type: record
     config:
       path: tmp/debug
