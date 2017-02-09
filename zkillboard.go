@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
+	"time"
 )
 
 const (
@@ -43,11 +43,13 @@ func (z *ZKillboard) Run() {
 	for {
 		resp, err := http.Get("https://redisq.zkillboard.com/listen.php")
 		if err != nil {
-			fmt.Fprintln(os.Stderr, "HTTP error!", err)
+			fmt.Printf("HTTP error! %v", err)
+			time.Sleep(5 * time.Second)
 			continue
 		}
 		if resp.StatusCode != 200 {
-			fmt.Fprintln(os.Stderr, "HTTP error!", resp.StatusCode, *resp)
+			fmt.Println("HTTP error!", resp.StatusCode, *resp)
+			time.Sleep(5 * time.Second)
 			continue
 		}
 		defer resp.Body.Close()
